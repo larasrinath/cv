@@ -18,14 +18,19 @@ if(using_googlesheets){
     # googlesheets4::sheets_auth()
   }
   
+  # added new sheets language, certs, hobbies
   
   position_data <- read_sheet(positions_sheet_loc, sheet = "positions")
-  skills        <- read_sheet(positions_sheet_loc, sheet = "language_skills")
+  tools        <- read_sheet(positions_sheet_loc, sheet = "tools")
   text_blocks   <- read_sheet(positions_sheet_loc, sheet = "text_blocks")
   contact_info  <- read_sheet(positions_sheet_loc, sheet = "contact_info", skip = 1)
+  language <- read_sheet(positions_sheet_loc, sheet = "language")
+  hobby <- read_sheet(positions_sheet_loc, sheet = "hobby")
+  certs <- read_sheet(positions_sheet_loc, sheet = "certs")
+  
   
 } else {
-  
+  ho
   # Want to go oldschool with just a csv?
   position_data <- read_csv("csvs/positions.csv")
   skills        <- read_csv("csvs/language_skills.csv")

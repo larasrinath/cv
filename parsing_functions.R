@@ -68,7 +68,7 @@ print_section <- function(position_data, section_id){
       timeline = ifelse(
         is.na(start) | start == end,
         end,
-        glue('{end} - {start}')
+        glue('{start} - {end}') # changed to show from start to end 
       ),
       description_bullets = ifelse(
         no_descriptions,
@@ -81,9 +81,9 @@ print_section <- function(position_data, section_id){
     glue_data(
       "### {title}",
       "\n\n",
-      "{loc}",
+      "{institution}", #changed from location to institution
       "\n\n",
-      "{institution}",
+      "{loc}",
       "\n\n",
       "{timeline}", 
       "\n\n",
@@ -94,7 +94,7 @@ print_section <- function(position_data, section_id){
 
 # Construct a bar chart of skills
 build_skill_bars <- function(skills, out_of = 5){
-  bar_color <- "#969696"
+  bar_color <- "#999999"
   bar_background <- "#d9d9d9"
   skills %>% 
     mutate(width_percent = round(100*level/out_of)) %>% 
@@ -107,6 +107,7 @@ build_skill_bars <- function(skills, out_of = 5){
       "</div>"
     )
 }
+
 
 # Prints out from text_blocks spreadsheet blocks of text for the intro and asides. 
 print_text_block <- function(text_blocks, label){
